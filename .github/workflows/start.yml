@@ -3,7 +3,7 @@ name: Pixelmon Server - 雲端世界備份 (ZeroTier VPN)
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [fabric-server-cloud-backup-zerotier-vpn]
+    types: [pixelmon-Server-cloud-backup-zerotier-vpn]
 
 jobs:
   minecraft:
@@ -134,7 +134,7 @@ jobs:
 
       - name: 啟動 Fabric Server（使用 screen）
         run: |
-          screen -L -dmS minecraft java -Xmx6G -Xms6G -jar fabric-server-launch.jar nogui
+          screen -L -dmS minecraft java -Xmx6G -Xms6G -jar forge-1.16.5-36.2.35.jar nogui
 
           # 啟動 API 服務
           cd minecraft-log-stream
