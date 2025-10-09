@@ -24,11 +24,11 @@ jobs:
           sed -i "s|rcon.port=.*|rcon.port=${RCON_PORT}|" server.properties
 
 
-      - name: 安裝 Java 21
-        uses: actions/setup-java@v4
+      - name: 安裝 Java 8
+        uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 8
 
       - name: 安裝 Python 和 gdown
         run: |
@@ -134,7 +134,7 @@ jobs:
 
       - name: 啟動 Fabric Server（使用 screen）
         run: |
-          java -Xmx6G -Xms6G -jar forge-1.16.5-36.2.35.jar nogui
+          screen -L -dmS minecraft java -Xmx6G -Xms6G -jar forge-1.16.5-36.2.35.jar nogui
 
           # 啟動 API 服務
           cd minecraft-log-stream
