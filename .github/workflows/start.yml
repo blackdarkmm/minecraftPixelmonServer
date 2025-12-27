@@ -44,6 +44,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: 初始化 Node.js 並安裝 Express
+        run: |
+          cd minecraft-log-stream
+          npm init -y
+          npm install express
+
       - name: 下載 world.zip（從 Google Drive）
         env:
           FILE_ID: ${{ secrets.GDRIVE_FILE_ID }}
